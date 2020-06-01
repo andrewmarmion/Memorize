@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CardView: View {
+    
     var card: MemoryGame<String>.Card
     
     var body: some View {
@@ -17,6 +18,10 @@ struct CardView: View {
         }
     }
     
+
+    /// A helper function to avoid using self
+    /// - Parameter size: The size of the card
+    /// - Returns: The card
     func body(for size: CGSize) -> some View {
         ZStack {
             if card.isFaceUp {
@@ -24,7 +29,10 @@ struct CardView: View {
                 RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeLineWidth)
                 Text(card.content)
             } else {
-                RoundedRectangle(cornerRadius: cornerRadius).fill()
+                // Don't show anything if the card is matched.
+                if !card.isMatched {
+                    RoundedRectangle(cornerRadius: cornerRadius).fill()
+                }
             }
         }
         .font(.system(size: fontSize(for: size)))
@@ -36,6 +44,10 @@ struct CardView: View {
     private let edgeLineWidth: CGFloat = 3
     private let fontScaleFactor: CGFloat = 0.75
     
+    
+    /// Calculates the font size based on the card size
+    /// - Parameter size: The GCSize of the item
+    /// - Returns: A CGFloat for the size of the font that will best fit the card
     private func fontSize(for size: CGSize) -> CGFloat {
         min(size.width, size.height) * fontScaleFactor
     }

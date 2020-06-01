@@ -8,8 +8,28 @@
 
 import Foundation
 
-struct MemoryGame<CardContent: Equatable> {
+struct MemoryGame<CardContent: Equatable & Hashable> {
+    
     var cards: Array<Card>
+    var score: Int = 0
+    
+    var gameComplete: Bool {
+        cards.count == matchedCards.count
+    }
+    
+    // Does this need to be a set? Would an array be ok? Would it be better to just store a count?
+    private var matchedCards: Set<Card> = []
+    
+    var indexOfTheOneAndOnlyFaceUpCard: Int? {
+        
+        get { cards.indices.filter { cards[$0].isFaceUp }.only }
+        
+        set {
+            for index in cards.indices {
+                cards[index].isFaceUp = index == newValue
+            }
+        }
+    }
     
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
         cards = Array<Card>()
@@ -17,7 +37,7 @@ struct MemoryGame<CardContent: Equatable> {
             let content: CardContent = cardContentFactory(pairIndex)
             cards.append(Card(content: content, id: pairIndex * 2))
             cards.append(Card(content: content, id: pairIndex * 2 + 1))
-
+            
         }
         cards.shuffle()
     }
@@ -25,27 +45,32 @@ struct MemoryGame<CardContent: Equatable> {
     /// Toggles the card's isFaceUp value
     /// - Parameter card: The card we wish to change
     mutating func choose(card: Card) {
-        let chosenIndex: Int = self.index(of: card)
-        self.cards[chosenIndex].isFaceUp = !self.cards[chosenIndex].isFaceUp
-    }
-    
-    
-    /// Finds the index of the card in the cards array
-    /// - Parameter card: The card whose index we are looking for
-    /// - Returns: The index of the card we were looking for
-    private func index(of card: Card) -> Int {
-        
-        guard let index = cards.firstIndex(of: card) else {
-            fatalError("\(card) not found")
+        if let chosenIndex: Int = cards.firstIndex(of: card),
+            !cards[chosenIndex].isFaceUp,
+            !cards[chosenIndex].isMatched {
+            
+            if let potentialMatchIndex = indexOfTheOneAndOnlyFaceUpCard {
+                if cards[chosenIndex].content == cards[potentialMatchIndex].content {
+                    cards[chosenIndex].isMatched = true
+                    cards[potentialMatchIndex].isMatched = true
+                    
+                    score += 2
+                    matchedCards.insert(cards[chosenIndex])
+                    matchedCards.insert(cards[potentialMatchIndex])
+                    
+                } else {
+                    score -= 1 // are there any edge cases that could require a better solution than this?
+                }
+                cards[chosenIndex].isFaceUp = true
+            } else {
+                indexOfTheOneAndOnlyFaceUpCard = chosenIndex
+            }
         }
-        
-        return index
     }
-    
     
     /// A card that is used in the game
-    struct Card: Identifiable, Equatable {
-
+    struct Card: Identifiable, Equatable, Hashable {
+        
         var isFaceUp: Bool = false
         var isMatched: Bool = false
         var content: CardContent
