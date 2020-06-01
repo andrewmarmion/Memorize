@@ -9,7 +9,11 @@
 import SwiftUI
 
 struct EmojiMemoryGameView: View {
-    @ObservedObject var viewModel: EmojiMemoryGame
+    @ObservedObject private var viewModel: EmojiMemoryGame
+    
+    init(viewModel: EmojiMemoryGame) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         NavigationView {

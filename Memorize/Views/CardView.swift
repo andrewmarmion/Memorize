@@ -10,7 +10,11 @@ import SwiftUI
 
 struct CardView: View {
     
-    var card: MemoryGame<String>.Card
+    private var card: MemoryGame<String>.Card
+    
+    init(card: MemoryGame<String>.Card) {
+        self.card = card
+    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -18,31 +22,28 @@ struct CardView: View {
         }
     }
     
-
+    
     /// A helper function to avoid using self
     /// - Parameter size: The size of the card
     /// - Returns: The card
-    func body(for size: CGSize) -> some View {
-        ZStack {
-            if card.isFaceUp {
-                RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
-                RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeLineWidth)
+    @ViewBuilder
+    private func body(for size: CGSize) -> some View {
+        if card.isFaceUp || !card.isMatched {
+            ZStack {
+                Pie(startAngle: .init(degrees: 0-90), endAngle: .init(degrees: 110-90), clockwise: true)
+                    .padding(5)
+                    .opacity(0.4)
                 Text(card.content)
-            } else {
-                // Don't show anything if the card is matched.
-                if !card.isMatched {
-                    RoundedRectangle(cornerRadius: cornerRadius).fill()
-                }
+                    .font(.system(size: fontSize(for: size)))
             }
+            .cardify(isFaceUp: card.isFaceUp)
         }
-        .font(.system(size: fontSize(for: size)))
+        
     }
     
     // MARK: - Drawing Constants
     
-    private let cornerRadius: CGFloat = 10
-    private let edgeLineWidth: CGFloat = 3
-    private let fontScaleFactor: CGFloat = 0.75
+    private let fontScaleFactor: CGFloat = 0.7
     
     
     /// Calculates the font size based on the card size
@@ -57,15 +58,15 @@ struct CardView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             CardView(card: MemoryGame<String>.Card(content: "👻", id: 0))
-                .previewLayout(.fixed(width: 100, height: 150))
+                .previewLayout(.fixed(width: 200, height: 300))
                 .padding()
             
             CardView(card: MemoryGame<String>.Card(isFaceUp: true, isMatched: false, content: "👻", id: 0))
-                .previewLayout(.fixed(width: 100, height: 150))
+                .previewLayout(.fixed(width: 200, height: 300))
                 .padding()
             
             CardView(card: MemoryGame<String>.Card(isFaceUp: true, isMatched: true, content: "🎃", id: 0))
-                .previewLayout(.fixed(width: 100, height: 150))
+                .previewLayout(.fixed(width: 300, height: 200))
                 .padding()
         }
         .background(Color.white)
@@ -73,3 +74,5 @@ struct CardView_Previews: PreviewProvider {
         
     }
 }
+
+

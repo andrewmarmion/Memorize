@@ -10,8 +10,8 @@ import Foundation
 
 struct MemoryGame<CardContent: Equatable & Hashable> {
     
-    var cards: Array<Card>
-    var score: Int = 0
+    private(set) var cards: Array<Card>
+    private(set) var score: Int = 0
     
     var gameComplete: Bool {
         cards.count == matchedCards.count
@@ -20,7 +20,7 @@ struct MemoryGame<CardContent: Equatable & Hashable> {
     // Does this need to be a set? Would an array be ok? Would it be better to just store a count?
     private var matchedCards: Set<Card> = []
     
-    var indexOfTheOneAndOnlyFaceUpCard: Int? {
+    private var indexOfTheOneAndOnlyFaceUpCard: Int? {
         
         get { cards.indices.filter { cards[$0].isFaceUp }.only }
         
