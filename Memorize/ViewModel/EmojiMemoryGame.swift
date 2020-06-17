@@ -23,8 +23,8 @@ class EmojiMemoryGame: ObservableObject {
     
     private static func createMemoryGame() -> (game: MemoryGame<String>, theme: Theme) {
         let theme: Theme = themes.randomElement()!
-        let numberOfPairsOfCards: Int = Int.random(in: 2..<theme.emoji.count)
-        return (game: MemoryGame<String>(numberOfPairsOfCards: numberOfPairsOfCards) { pairIndex in theme.emoji[pairIndex] }, theme: theme)
+        print("Theme: ", theme.json?.prettyPrinted ?? "unable to get json theme")
+        return (game: MemoryGame<String>(numberOfPairsOfCards: theme.emoji.count) { pairIndex in theme.emoji[pairIndex] }, theme: theme)
     }
     
     // MARK: - Access to the Model
@@ -55,38 +55,46 @@ class EmojiMemoryGame: ObservableObject {
         self.gameComplete = false
     }
     
-    struct Theme {
+    struct Theme: Codable {
         typealias Emoji = String
         
         let name: String
         let emoji: [Emoji]
-        let cardColor: Color
+        let color: UIColor.RGB
+
+        var cardColor: Color {
+            Color(color)
+        }
+
+        var json: Data? {
+            try? JSONEncoder().encode(self)
+        }
     }
     
     private static let themes: [Theme] = [
         Theme(name: "Halloween",
               emoji: ["🎃", "👻", "🕷", "🕸", "🧙‍♀️", "💀", "🦇"],
-              cardColor: .orange),
+              color: .init(red: 244 / 255, green: 142 / 255, blue: 40 / 255, alpha: 1)),
 
         Theme(name: "Flags",
               emoji: ["🏴󠁧󠁢󠁳󠁣󠁴󠁿", "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "🇮🇪", "🏴󠁧󠁢󠁷󠁬󠁳󠁿", "🇫🇷", "🇮🇹", "🇩🇪", "🇧🇪", "🇱🇺", "🇪🇺"],
-              cardColor: .green),
+              color: .init(red: 27 / 255, green: 181 / 255, blue: 27 / 255, alpha: 1)),
 
         Theme(name: "Smileys",
               emoji: ["😀", "😍", "😝", "😎", "🤩", "🤢", "💩", "🤑", "🤕", "🥴", "🤥", "🤬", "🤯", "🥶", "🥺", "😈"],
-              cardColor: .yellow),
+              color: .init(red: 244 / 255, green: 142 / 255, blue: 40 / 255, alpha: 1)),
 
         Theme(name: "Food",
               emoji: ["🌭", "🍔", "🌮", "🍟", "🍕", "🍣", "🥟", "🍿", "🍩", "🍦"],
-              cardColor: .purple),
+              color: .init(red: 245 / 255, green: 241 / 255, blue: 15 / 255, alpha: 1)),
         
         Theme(name: "Sport",
               emoji: ["⚽️", "🏀", "🏈", "⚾️", "🥎", "🎾", "🏐", "🏉", "🎱", "🏓", "🏒", "🏑", "🥋", "🥊", "🤿", "⛳️"],
-              cardColor: .pink),
+              color: .init(red: 246 / 255, green: 141 / 255, blue: 232 / 255, alpha: 1)),
         
         Theme(name: "Animals",
               emoji: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐵", "🦄"],
-              cardColor: .red)
+              color: .init(red: 247 / 255, green: 27 / 255, blue: 27 / 255, alpha: 1))
     ]
 }
 

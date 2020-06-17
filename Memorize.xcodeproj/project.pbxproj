@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D296C07249A100400826115 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D296C06249A100400826115 /* Color.swift */; };
+		2D296C09249A13A200826115 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D296C08249A13A200826115 /* Data.swift */; };
 		2D4FA1AE247DA005002C8F1A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4FA1AD247DA005002C8F1A /* CardView.swift */; };
 		2D4FA1B2247E5258002C8F1A /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4FA1B1247E5258002C8F1A /* Grid.swift */; };
 		2D4FA1B4247E56CA002C8F1A /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4FA1B3247E56CA002C8F1A /* GridLayout.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D296C06249A100400826115 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		2D296C08249A13A200826115 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		2D4FA1AD247DA005002C8F1A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		2D4FA1B1247E5258002C8F1A /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		2D4FA1B3247E56CA002C8F1A /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				2DDD33792485766400F492F2 /* Array.swift */,
+				2D296C06249A100400826115 /* Color.swift */,
+				2D296C08249A13A200826115 /* Data.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -239,8 +245,10 @@
 				2DDD337A2485766400F492F2 /* Array.swift in Sources */,
 				2DF98F5224751E6D0093B858 /* AppDelegate.swift in Sources */,
 				2DF98F5424751E6D0093B858 /* SceneDelegate.swift in Sources */,
+				2D296C07249A100400826115 /* Color.swift in Sources */,
 				2D78400724758B6600FC60B0 /* MemoryGame.swift in Sources */,
 				2DF98F5624751E6D0093B858 /* EmojiMemoryGameView.swift in Sources */,
+				2D296C09249A13A200826115 /* Data.swift in Sources */,
 				2D4FA1AE247DA005002C8F1A /* CardView.swift in Sources */,
 				2D4FA1B2247E5258002C8F1A /* Grid.swift in Sources */,
 				2D78400924758D8700FC60B0 /* EmojiMemoryGame.swift in Sources */,
