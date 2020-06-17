@@ -22,6 +22,14 @@ struct CardView: View {
         }
     }
     
+    @State private var animatedBonusRemaining: Double = 0
+    
+    private func startBonusTimeAnimation() {
+        animatedBonusRemaining = card.bonusRemaining
+        withAnimation(.linear(duration: card.bonusTimeRemaining)) {
+            animatedBonusRemaining = 0
+        }
+    }
     
     /// A helper function to avoid using self
     /// - Parameter size: The size of the card
@@ -30,15 +38,31 @@ struct CardView: View {
     private func body(for size: CGSize) -> some View {
         if card.isFaceUp || !card.isMatched {
             ZStack {
-                Pie(startAngle: .init(degrees: 0-90), endAngle: .init(degrees: 110-90), clockwise: true)
-                    .padding(5)
-                    .opacity(0.4)
+                Group {
+                    if card.isConsumingBonusTime {
+                        Pie(startAngle: .init(degrees: 0-90),
+                            endAngle: .init(degrees: -animatedBonusRemaining * 360 - 90),
+                            clockwise: true)
+                            .onAppear(perform: startBonusTimeAnimation)
+                    } else {
+                        Pie(startAngle: .init(degrees: 0-90),
+                            endAngle: .init(degrees: -card.bonusRemaining * 360 - 90),
+                            clockwise: true)
+                            .padding(5)
+                            .opacity(0.4)
+                    }
+                }
+                .padding(5)
+                .opacity(0.4)
+                
                 Text(card.content)
                     .font(.system(size: fontSize(for: size)))
+                    .rotationEffect(.init(degrees: card.isMatched ? 360 : 0))
+                    .animation(card.isMatched ? Animation.linear(duration: 1).repeatForever(autoreverses: false) : .default)
             }
             .cardify(isFaceUp: card.isFaceUp)
+            .transition(AnyTransition.scale)
         }
-        
     }
     
     // MARK: - Drawing Constants
