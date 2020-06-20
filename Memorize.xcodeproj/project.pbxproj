@@ -17,6 +17,15 @@
 		2DDD337A2485766400F492F2 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDD33792485766400F492F2 /* Array.swift */; };
 		2DDD337D24858F7100F492F2 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDD337C24858F7100F492F2 /* Pie.swift */; };
 		2DDD337F2485953800F492F2 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDD337E2485953800F492F2 /* Cardify.swift */; };
+		2DF0A9CA249E3F92008B83B0 /* AddEmojiPopoverHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF0A9C9249E3F92008B83B0 /* AddEmojiPopoverHeader.swift */; };
+		2DF0A9CC249E4060008B83B0 /* AddEmojiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF0A9CB249E4060008B83B0 /* AddEmojiSection.swift */; };
+		2DF0A9CE249E4104008B83B0 /* AddEmojiDisplaySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF0A9CD249E4104008B83B0 /* AddEmojiDisplaySection.swift */; };
+		2DF3B533249D449A0034F4B7 /* EmojiMemoryGameChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF3B532249D449A0034F4B7 /* EmojiMemoryGameChooser.swift */; };
+		2DF3B535249D47420034F4B7 /* EmojiMemoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF3B534249D47420034F4B7 /* EmojiMemoryStore.swift */; };
+		2DF3B537249D49680034F4B7 /* ThemeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF3B536249D49680034F4B7 /* ThemeRow.swift */; };
+		2DF3B539249D4AB50034F4B7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF3B538249D4AB50034F4B7 /* Theme.swift */; };
+		2DF3B540249D561D0034F4B7 /* AddEmojiPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF3B53F249D561D0034F4B7 /* AddEmojiPopover.swift */; };
+		2DF3B542249D59C70034F4B7 /* OutlineModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF3B541249D59C70034F4B7 /* OutlineModifier.swift */; };
 		2DF98F5224751E6D0093B858 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF98F5124751E6D0093B858 /* AppDelegate.swift */; };
 		2DF98F5424751E6D0093B858 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF98F5324751E6D0093B858 /* SceneDelegate.swift */; };
 		2DF98F5624751E6D0093B858 /* EmojiMemoryGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF98F5524751E6D0093B858 /* EmojiMemoryGameView.swift */; };
@@ -36,6 +45,15 @@
 		2DDD33792485766400F492F2 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		2DDD337C24858F7100F492F2 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		2DDD337E2485953800F492F2 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
+		2DF0A9C9249E3F92008B83B0 /* AddEmojiPopoverHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmojiPopoverHeader.swift; sourceTree = "<group>"; };
+		2DF0A9CB249E4060008B83B0 /* AddEmojiSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmojiSection.swift; sourceTree = "<group>"; };
+		2DF0A9CD249E4104008B83B0 /* AddEmojiDisplaySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmojiDisplaySection.swift; sourceTree = "<group>"; };
+		2DF3B532249D449A0034F4B7 /* EmojiMemoryGameChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGameChooser.swift; sourceTree = "<group>"; };
+		2DF3B534249D47420034F4B7 /* EmojiMemoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryStore.swift; sourceTree = "<group>"; };
+		2DF3B536249D49680034F4B7 /* ThemeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeRow.swift; sourceTree = "<group>"; };
+		2DF3B538249D4AB50034F4B7 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		2DF3B53F249D561D0034F4B7 /* AddEmojiPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmojiPopover.swift; sourceTree = "<group>"; };
+		2DF3B541249D59C70034F4B7 /* OutlineModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineModifier.swift; sourceTree = "<group>"; };
 		2DF98F4E24751E6D0093B858 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DF98F5124751E6D0093B858 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DF98F5324751E6D0093B858 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +88,12 @@
 			children = (
 				2DF98F5524751E6D0093B858 /* EmojiMemoryGameView.swift */,
 				2D4FA1AD247DA005002C8F1A /* CardView.swift */,
+				2DF3B532249D449A0034F4B7 /* EmojiMemoryGameChooser.swift */,
+				2DF3B536249D49680034F4B7 /* ThemeRow.swift */,
+				2DF3B53F249D561D0034F4B7 /* AddEmojiPopover.swift */,
+				2DF0A9C9249E3F92008B83B0 /* AddEmojiPopoverHeader.swift */,
+				2DF0A9CB249E4060008B83B0 /* AddEmojiSection.swift */,
+				2DF0A9CD249E4104008B83B0 /* AddEmojiDisplaySection.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -78,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				2D78400824758D8700FC60B0 /* EmojiMemoryGame.swift */,
+				2DF3B534249D47420034F4B7 /* EmojiMemoryStore.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -86,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				2D78400624758B6600FC60B0 /* MemoryGame.swift */,
+				2DF3B538249D4AB50034F4B7 /* Theme.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +150,7 @@
 		2DDD33802485955500F492F2 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				2DF3B541249D59C70034F4B7 /* OutlineModifier.swift */,
 				2DDD337E2485953800F492F2 /* Cardify.swift */,
 			);
 			path = ViewModifiers;
@@ -240,9 +267,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DF3B540249D561D0034F4B7 /* AddEmojiPopover.swift in Sources */,
+				2DF0A9CC249E4060008B83B0 /* AddEmojiSection.swift in Sources */,
 				2DDD337F2485953800F492F2 /* Cardify.swift in Sources */,
+				2DF3B535249D47420034F4B7 /* EmojiMemoryStore.swift in Sources */,
 				2DDD337D24858F7100F492F2 /* Pie.swift in Sources */,
 				2DDD337A2485766400F492F2 /* Array.swift in Sources */,
+				2DF3B537249D49680034F4B7 /* ThemeRow.swift in Sources */,
 				2DF98F5224751E6D0093B858 /* AppDelegate.swift in Sources */,
 				2DF98F5424751E6D0093B858 /* SceneDelegate.swift in Sources */,
 				2D296C07249A100400826115 /* Color.swift in Sources */,
@@ -252,7 +283,12 @@
 				2D4FA1AE247DA005002C8F1A /* CardView.swift in Sources */,
 				2D4FA1B2247E5258002C8F1A /* Grid.swift in Sources */,
 				2D78400924758D8700FC60B0 /* EmojiMemoryGame.swift in Sources */,
+				2DF0A9CA249E3F92008B83B0 /* AddEmojiPopoverHeader.swift in Sources */,
+				2DF0A9CE249E4104008B83B0 /* AddEmojiDisplaySection.swift in Sources */,
 				2D4FA1B4247E56CA002C8F1A /* GridLayout.swift in Sources */,
+				2DF3B533249D449A0034F4B7 /* EmojiMemoryGameChooser.swift in Sources */,
+				2DF3B539249D4AB50034F4B7 /* Theme.swift in Sources */,
+				2DF3B542249D59C70034F4B7 /* OutlineModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

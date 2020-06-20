@@ -16,24 +16,22 @@ struct EmojiMemoryGameView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Grid(viewModel.cards) { card in
-                    CardView(card: card).onTapGesture {
-                        withAnimation(.linear) {
-                            self.viewModel.choose(card: card)
-                        }
+        VStack {
+            Grid(viewModel.cards) { card in
+                CardView(card: card).onTapGesture {
+                    withAnimation(.linear) {
+                        self.viewModel.choose(card: card)
                     }
-                    .padding(5)
                 }
-                Text("Score: \(viewModel.score)").frame(maxWidth: .infinity)
+                .padding(5)
             }
-            .alert(isPresented: $viewModel.gameComplete, content: createAlert)
-            .padding()
-            .foregroundColor(viewModel.theme.cardColor)
-            .navigationBarTitle(viewModel.theme.name)
-            .navigationBarItems(trailing: trailingNavigationButton())
+            Text("Score: \(viewModel.score)").frame(maxWidth: .infinity)
         }
+        .alert(isPresented: $viewModel.gameComplete, content: createAlert)
+        .padding()
+        .foregroundColor(viewModel.theme.cardColor)
+        .navigationBarTitle(viewModel.theme.name)
+        .navigationBarItems(trailing: trailingNavigationButton())
     }
 }
 
@@ -65,6 +63,6 @@ extension EmojiMemoryGameView {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EmojiMemoryGameView(viewModel: EmojiMemoryGame())
+        EmojiMemoryGameView(viewModel: EmojiMemoryGame(theme: Theme.themes[0]))
     }
 }
